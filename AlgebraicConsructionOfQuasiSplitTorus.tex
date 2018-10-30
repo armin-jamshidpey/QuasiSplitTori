@@ -86,10 +86,10 @@
 
 \title{Algebraic Construction of Quasi-split Algebraic Tori}
 \author[1]{Armin Jamshidpey \footnote{Corresponding author. Email address: armin.jamshidpey@uwaterloo.ca.}}
-\author[2]{Nicole Lemire}
-\author[1]{\'Eric Schost}
-\affil[1]{David Cheriton School of Computer Science, University of Waterloo}
-\affil[2]{Department of Mathematics, University of Western Ontario}
+\author[2]{Nicole Lemire\footnote{nlemire@uwo.ca}}
+\author[1]{\'Eric Schost \footnote{eschost@uwaterloo.ca}}
+\affil[1]{David Cheriton School of Computer Science, University of Waterloo, Waterloo, Canada}
+\affil[2]{Department of Mathematics, University of Western Ontario, London, Canada}
 
 
 
@@ -101,18 +101,14 @@
 \begin{abstract}
 
 The main purpose of this work is to give a constructive proof for a 
-particular case of the no-name lemma. Let $G$ be a
-finite group, $K$ be a field, $L$ be a permutation $G$-lattice 
-and $K[L]$ be the group algebra of $L$ over
-$K$. The no-name lemma asserts that the invariant field of the
-quotient field of $K[L]$, $K(L)^G$ is a purely transcendental
-extension of $K^G$. In other words, there exist $y_1, \ldots , y_n$
-which are algebraically independent over $K^G$ such that $K(L)^G \cong
-K^G(y_1, \ldots , y_n)$.  We define elements $\lbrace y_1, \ldots, y_n
-\rbrace \subset K[L]^G$ with the desired properties, in the case when
-$G$ is the Galois group of a finite extension $\mathrm{Gal}(K/F)$, and
-%is given as a group of (signed) permutation matrices.
-$L$ is a sign permutation $G$-lattice.
+particular case of the no-name lemma. Let $G$ be a finite group, $K$ a field that is equipped with a faithful 
+$G$-action, and $L$ a sign permutation $G$-lattice (see below for the definition). Then $G$ acts naturally 
+on the group algebra $K[L]$ of $L$ over $K$, and hence also on the quotient field
+$K(L) = Q(K[L])$. A variant of the “no-name lemma” asserts that the invariant sub-
+field $K(L)^G$ is a purely transcendental extension of $K^G$ \cite[Proposition 9.5.1]{Lorenz}. In other words,
+ there exist $y_1, \ldots , y_n$ which are algebraically independent over $K^G$ such that $K(L)^G \cong
+K^G(y_1, \ldots , y_n)$. In this article, we give an explicit construction of suitable 
+elements $y_1 , \ldots , y_n$.
 \end{abstract}
 
  \textbf{Keywords:} Algebraic tori, Lattices, Multiplicative invariants, No-name lemma.
@@ -134,14 +130,13 @@ more details,
 %see~\cite[Chapter 2]{Voskresenskii}.
 see~\cite[p. 27]{Voskresenskii}.
 
-For a finite group $G$, a $G$-lattice $L$ is a free $\Z$-module $A$ of
-finite rank, together with a group homomorphism $G \longrightarrow
-{\rm Aut}(A)$ (the group of automorphisms of $A$). Given a module
-basis of $A$, any group homomorphism $G \longrightarrow {\rm
-  GL}(n,\Z)$, with $n={\rm rank}(A)$, gives such an action.  If $K$ is
+For a finite group $G$, a $G$-lattice is a free $\Z$-module of finite rank, $L \cong \Z^n$ , together
+with a group homomorphism $G \rightarrow \mathrm{Aut}(L) \cong \mathrm{GL}(n, Z)$. 
+Given a module basis of $L$, any group homomorphism $G \longrightarrow {\rm
+  GL}(n,\Z)$, with $n={\rm rank}(L)$, gives such an action.  If $K$ is
 a field, the group algebra $K[L]$ of $L$ over $K$ is isomorphic to the
 $K$-algebra of Laurent polynomials $K[x_1^{\pm 1},\dots,x_n^{\pm 1}]$,
-for some indeterminates $x_1,\dots,x_n$.  If $K$ is equipped with an
+for some indeterminates $x_1,\dots,x_n$.  If $K$ is equipped with a faithful
 action of $G$ (that is, a $G$-field), we can extend the action of $G$
 on lattice $L$ to an action on $K[L]$; the ring $K[L]^G$ of {\em
   multiplicative invariants} consists of those elements in $K[L]$
@@ -179,15 +174,15 @@ as this would only produce character lattices which are direct sums of the group
  %%to which we refer by the same name, 
 
 A specific case of the no-name lemma asserts that if $L$ is a
-permutation $G$-lattice and $K$ is a $G$-field, then $K(L)^G$ is
+permutation $G$-lattice and $K$ is a faithful $G$-field, then $K(L)^G$ is
 rational over $K^G$~\cite[Chapter~9.4]{Lorenz}; in particular, with
 $G={\rm Gal}(K/F)$, $K(L)^G$ is $F$-rational. The term "no-name lemma"
 was first used by Dolgachev in \cite{Dolgachev}, expressing the fact
 that many researchers discovered the result independently. It is
-actually more general than the stated version here; see
+actually more general than the version stated here; see
 \cite[p.\ 6]{Dolgachev}, \cite[Section 3.2]{Sansuc}, \cite[Proposition
-  1.3]{Lenstra}, \cite[Remark 2.4]{Domokos} and \cite[Proposition
-  1.1]{EndoMiyata}.  In this paper, we give a constructive proof of
+  1.3]{Lenstra}, \cite[Remark 2.4]{Domokos}, \cite[Proposition
+  1.1]{EndoMiyata} and \cite[Proposition 9.5.1]{Lorenz}.  In this paper, we give a constructive proof of
 the particular case described above (and of a slight generalization
 thereof, using signed permutation matrices), by exhibiting a basis for
 such a field of invariants.  In concrete terms, we start from a
@@ -234,7 +229,7 @@ permutation lattice if and only if $G$ is conjugate to a group of
 efficient algorithm at hand to decide whether a given lattice is
 (signed) permutation. Hence, in our main results, we will assume that
 $G$ is a subgroup of the group $\mathbb{S}_n$ of permutation matrices
-of size $n$, or more generally of the group $\mathbb{B}_n$ of signed
+of size $n$, or more generally of the group $\mathbb{S}_n^{\pm 1}$ of signed
 permutation matrices of size $n$.  In such a case, for $i$ in
 $\{1,\dots,n\}$ and $g$ in $G$, $g(\be_i)=\pm \be_j$ for some index
 $j$ in $\{1,\dots,n\}$ (all signs being $+1$ if $G$ is a subgroup of
@@ -277,7 +272,7 @@ of signed permutations (if the group $G$ below happens to be a subgroup of $\mat
 the construction is not the same as in the previous theorem).
 
 \begin{theorem}\label{nonamesign}
-  Let $G$ be a subgroup of $\mathbb{B}_n$, let $K/F$ be a finite
+  Let $G$ be a subgroup of $\mathbb{S}_n^{\pm 1}$, let $K/F$ be a finite
   Galois extension with Galois group $G$, and let $\alpha \in K$ be a
   normal element for $K/F$. Then
   $K(x_1,\ldots, x_n)^G = F(y_1, \ldots, y_{n}),$
@@ -310,32 +305,32 @@ Lex Renner for their feedback on an earlier version of this work.
 
 
 In what follows, we use the following notation: we still write
-$\mathbb{S}_n$, resp.\ $\mathbb{B}_n$, for the groups of permutation,
+$\mathbb{S}_n$, resp.\ $\mathbb{S}_n^{\pm 1}$, for the groups of permutation,
 resp.\ signed permutation matrices of size $n$. Note that $\mathbb{D}_n$, the group of  diagonal matrices 
-in $\mathrm{GL}_n(\Z)$ (diagonal matrices with entries in $\{\pm 1\}$) is a normal subgroup of $\mathbb{B}_n$
-such that $\mathbb{B}_n=\mathbb{D}_n\rtimes \mathbb{S}_n$ is a semidirect product.
+in $\mathrm{GL}_n(\Z)$ (diagonal matrices with entries in $\{\pm 1\}$) is a normal subgroup of $\mathbb{S}_n^{\pm 1}$
+such that $\mathbb{S}_n^{\pm 1}=\mathbb{D}_n\rtimes \mathbb{S}_n$ is a semidirect product.
 We let $\mathfrak{S}_n$ be the symmetric group of size $n$.  Since $\mathbb{S}_n$ is naturally isomorphic to 
 $\mathfrak{S}_n$, we see that there is a natural group homomorphism  
-$\rho: \mathbb{B}_n \to \mathfrak{S}_n$ 
+$\rho: \mathbb{S}_n^{\pm 1} \to \mathfrak{S}_n$ 
 obtained by mapping a signed permutation matrix to the permutation
 $\rho_g$ such that $\rho_g(i)=j$, where $j$ is the index of the
 unique non-zero entry in the $i$th column of $g$.  Note that the kernel of the group homomorphism is $\mathbb{D}_n$. %(\we 
 %$\mathfrak{S}_n$ be the symmetric group of size $n$ and we denote by
-%$\rho: \mathbb{B}_n \to \mathfrak{S}_n$ the group homomorphism
+%$\rho: \mathbb{S}_n^{\pm 1} \to \mathfrak{S}_n$ the group homomorphism
 %obtained by mapping a signed permutation matrix to the permutation
 %$\rho_g$ such that $\rho_g(i)=j$, where $j$ is the index of the
 %unique non-zero entry in the $i$th column of $g$.  
 Hence, in terms of
-the action defined in the previous section, for $g$ in $\mathbb{B}_n$
+the action defined in the previous section, for $g$ in $\mathbb{S}_n^{\pm 1}$
 and for all $i,j$ in $\{1,\dots,n\}$, we have $g(x_i) =
-x_{\rho_g(i)}^{\pm 1}$.  For $i,j$ as above, we also denote by
+x_{\rho_g(i)}^{\pm 1}$. For a subgroup $G$ of $S_n^{\pm 1}$ and $i, j$ as above, we also denote by
 $G^{\pm}_{i,j}$ the set of all $g$ in $G$ such that $g(x_i)=x^{\pm 1}_j$, that is,
-such that $\rho_g(i)=j$.
+$\rho_g(i)=j$.
 %% \textbf{Changed notation here to not duplicate permutation case notation}.
 
 We start with a lemma that generalizes known facts about Moore
 matrices over finite fields (see Example~\ref{ex:Moore} below). Let
-$G$ be a subgroup of $\mathbb{B}_n$ and let $K/F$ be a finite Galois
+$G$ be a subgroup of $\mathbb{S}_n^{\pm 1}$ and let $K/F$ be a finite Galois
 extension with Galois group isomorphic to $G$, as in the previous
 section. Through this isomorphism, $G$ acts on (column) vectors
 entrywise: for $g \in G$ and a column vector in $K^m$, written as $C =
@@ -345,7 +340,7 @@ we define $g(C) = \left[g(\mu_{1}) \,\,\, g(\mu_{2}) \,\,\, \cdots
 
 Let then $M$ be in $M_{n,n}(K)$. For such a matrix, and for
 $i=1,\dots,n$, its $i$th column is written $M_i=\left[\mu_{1,i} \,\,\,
-  \mu_{2,i} \,\,\, \cdots \,\,\, \mu_{m,j}\right]^T$.  We say that $G$
+  \mu_{2,i} \,\,\, \cdots \,\,\, \mu_{n,j}\right]^T$.  We say that $G$
 {\em permutes the columns of $M$ up to sign} if for $g$ in $G$ and $i$
 in $\{1,\dots,n\}$, we have $g(M_i)= \pm M_{\rho_g(i)}$.
  
